@@ -6,7 +6,7 @@ public class TextHelper {
 	private TextHelper() {
 		super();
 	}
-	
+
 	public static final boolean isNull(final String string) {
 		return string == null;
 	}
