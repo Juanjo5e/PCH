@@ -1,6 +1,7 @@
 package co.edu.uco.pch.crosscutting.Exception;
 
 import co.edu.uco.pch.crosscutting.Exception.enums.Lugar;
+
 import co.edu.uco.pch.crosscutting.helper.ObjectHelper;
 import co.edu.uco.pch.crosscutting.helper.TextHelper;
 
@@ -25,13 +26,13 @@ public class PCHException extends RuntimeException{
 	
 		}
 
-	private void setMensajeUsuario(final String mensajeUsuario) {
+	private final void setMensajeUsuario(final String mensajeUsuario) {
 		this.mensajeUsuario = TextHelper.applyTrim(mensajeUsuario);
 	}
 
-	private void setLugar(final Lugar lugar) {
-		this.lugar = ObjectHelper.getObjectHelper().getDefaulValue(lugar, Lugar.DEFAULT);
-	}
+	private final void setLugar(final Lugar lugar) {
+		this.lugar = ObjectHelper.getObjectHelper().getDefaulValue( lugar, Lugar.DEFAULT);
+		}
 
 
 	public final String getMensajeUsuario() {
