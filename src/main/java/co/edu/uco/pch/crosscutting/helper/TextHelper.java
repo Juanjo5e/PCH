@@ -3,6 +3,7 @@ package co.edu.uco.pch.crosscutting.helper;
 public class TextHelper {
 	
 	public static final String EMPTY ="";
+	public static final String UNDERLINE = "_";
 	private TextHelper() {
 		super();
 	}
@@ -21,5 +22,15 @@ public class TextHelper {
 	}
 	public static final String applyTrim(final String string) {
 		return getDefaultValue(string).trim();
+	}
+	public static final String concatenate(String... strings ) {
+		final var sb = new StringBuilder(EMPTY);
+		 
+		if (!ObjectHelper.getObjectHelper().isNULL(strings)) {
+			for (final var string : strings ) {
+				sb.append(applyTrim(string));
+			}
+		}
+		return sb.toString();
 	}
 	}

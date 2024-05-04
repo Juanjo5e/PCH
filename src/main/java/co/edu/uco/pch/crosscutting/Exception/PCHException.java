@@ -1,7 +1,7 @@
 package co.edu.uco.pch.crosscutting.Exception;
 
 import co.edu.uco.pch.crosscutting.Exception.enums.Lugar;
-
+import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.Mensaje;
 import co.edu.uco.pch.crosscutting.helper.ObjectHelper;
 import co.edu.uco.pch.crosscutting.helper.TextHelper;
 
@@ -20,11 +20,18 @@ public class PCHException extends RuntimeException{
 		}
 	
 	public PCHException(final String mensajeUsuario, final Lugar lugar){
-		super(mensajeUsuario, new Exception());
+		super(mensajeUsuario);
 		setMensajeUsuario(mensajeUsuario);
 		setLugar(lugar);
 	
 		}
+	public PCHException(final Mensaje mensajeTecnico,final Mensaje mensajeUsuario2, final Lugar lugar){
+		super();
+		setMensajeUsuario(mensajeUsuario);
+		setLugar(lugar);
+	
+		}
+
 
 	private final void setMensajeUsuario(final String mensajeUsuario) {
 		this.mensajeUsuario = TextHelper.applyTrim(mensajeUsuario);
