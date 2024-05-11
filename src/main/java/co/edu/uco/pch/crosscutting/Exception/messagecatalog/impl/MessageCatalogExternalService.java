@@ -7,21 +7,16 @@ import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.Mensaje;
 public final class MessageCatalogExternalService implements MessageCatalog {
 
 	@Override
-	public final void inicializar() {
-		// TODO Auto-generated method stub
-		
+	public final void inicializar() {		
 	}
 
 	@Override
-	public final String obtenerContenidoMensaje(final CodigoMensaje codigo, final String... parametros) {
-		// TODO Auto-generated method stub
+	public final String obtenerContendidoMensaje(final CodigoMensaje codigo, String... parametros) {
 		return null;
 	}
 
 	@Override
-	public final Mensaje obtenerMensaje(final CodigoMensaje codigo,final  String... parametros) {
-		// TODO Auto-generated method stub
+	public final Mensaje obtenerMensaje(final CodigoMensaje codigo, String... parametros) {
 		return null;
 	}
-
 }

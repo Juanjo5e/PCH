@@ -5,13 +5,14 @@ import java.util.UUID;
 public final class DepartamentoDTO {
 	private UUID id;
 	private String nombre;
-	private PaisDTO pais;
+	private PaisDto pais;
+
 	
 	public DepartamentoDTO() {
 		super();
 	}
 	
-	public DepartamentoDTO(final UUID id, final String nombre, final PaisDTO pais) {
+	public DepartamentoDTO(final UUID id, final String nombre, final PaisDto pais) {
 		setId(id);
 		setNombre(nombre);
 		setPais(pais);
@@ -35,10 +36,10 @@ public final class DepartamentoDTO {
 		this.nombre = nombre;
 		return this;
 	}
-	public final PaisDTO getPais() {
-		return pais;
+	public final PaisDto getPais() {
+		return getPais();
 	}
-	public final  void setPais(final PaisDTO pais) {
+	public final  void setPais(final PaisDto pais) {
 		this.pais = pais;
 	}
 	

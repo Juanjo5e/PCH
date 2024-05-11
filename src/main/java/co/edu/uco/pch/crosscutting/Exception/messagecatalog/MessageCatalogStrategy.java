@@ -25,13 +25,12 @@ public final class MessageCatalogStrategy {
 		return isBase ? base : externalService;
 	}
 	
-	public static final  Mensaje getMensaje(final CodigoMensaje codigo, 
-							final String...parametros) {
-		
+	public static final Mensaje getMensaje(final CodigoMensaje codigo, final String... parametros) {
+	    if (ObjectHelper.getObjectHelper().isNULL(codigo)) {
+	        throw new CrosscuttinPCHException(null, null);
+	    }
+	    return getStrategy(codigo.isBase()).obtenerMensaje(codigo, parametros);
 	}
-		if (ObjectHelper.getObjectHelper().isNULL(codigo)) {
-			throw new CrosscuttinPCHException(mensajeUsuario, null);
-		
-		return getStrategy(codigo.isBase()).obtenerMensaje(codigo, parametros);
-		}
+
 }
+
