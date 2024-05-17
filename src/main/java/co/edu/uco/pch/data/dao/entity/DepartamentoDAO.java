@@ -1,5 +1,10 @@
 package co.edu.uco.pch.data.dao.entity;
 
-public interface DepartamentoDAO {
+import java.util.UUID;
+
+import co.edu.uco.pch.entity.DepartamentoEntity;
+
+public interface DepartamentoDAO extends RetriveDAO<DepartamentoEntity>{
+	DepartamentoEntity obtenerPorId(UUID id);
 
 }

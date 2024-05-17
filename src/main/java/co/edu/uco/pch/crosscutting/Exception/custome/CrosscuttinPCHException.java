@@ -16,7 +16,7 @@ public final class CrosscuttinPCHException extends PCHException {
 		super(mensajeTecnico,mensajeUsuario,lugar);
 	}
 	
-	public CrosscuttinPCHException(final Object mensajeTecnico,final Object mensajeUsuario,
+	public CrosscuttinPCHException(final String mensajeTecnico,final String mensajeUsuario,
 			final Throwable exceptionRaiz) {
 		super(mensajeTecnico,mensajeUsuario, lugar, exceptionRaiz);
 	}

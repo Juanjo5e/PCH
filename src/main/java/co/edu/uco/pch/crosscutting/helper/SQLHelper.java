@@ -1,10 +1,11 @@
 package co.edu.uco.pch.crosscutting.helper;
-
 import java.sql.Connection;
 import java.sql.SQLException;
-import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttinPCHException;
 
+import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttinPCHException;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.MessageCatalogStrategy;
+import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.CodigoMensaje;
+
 
 public final class SQLHelper {
 
@@ -13,7 +14,7 @@ public final class SQLHelper {
 	}
 
 	public static final boolean isNull(final Connection connection) {
-		return ObjectHelper.getObjectHelper().isNull(connection);
+		return ObjectHelper.getObjectHelper().isNULL(connection);
 	}
 
 	public static final boolean isOpen(final Connection connection) {
@@ -23,12 +24,12 @@ public final class SQLHelper {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00007);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		} catch (final Exception exception) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00008);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		}
 	}
 
@@ -48,12 +49,12 @@ public final class SQLHelper {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00010);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		} catch (final Exception exception) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00011);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		}
 	}
 
@@ -80,12 +81,12 @@ public final class SQLHelper {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00014);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		} catch (final Exception exception) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00015);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		}
 	}
 
@@ -112,12 +113,12 @@ public final class SQLHelper {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00018);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		} catch (final Exception exception) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00019);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		}
 	}
 
@@ -137,13 +138,12 @@ public final class SQLHelper {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00021);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		} catch (final Exception exception) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00022);
 
-			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario, exception);
+			throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
 		}
 	}
 }
-

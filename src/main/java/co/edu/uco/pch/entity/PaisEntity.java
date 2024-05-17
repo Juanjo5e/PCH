@@ -2,6 +2,7 @@ package co.edu.uco.pch.entity;
 
 import java.util.UUID;
 
+import co.edu.uco.pch.crosscutting.helper.ObjectHelper;
 import co.edu.uco.pch.crosscutting.helper.TextHelper;
 
 public final class PaisEntity {

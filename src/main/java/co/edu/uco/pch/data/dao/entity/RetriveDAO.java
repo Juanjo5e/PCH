@@ -1,5 +1,8 @@
 package co.edu.uco.pch.data.dao.entity;
 
-public interface RetriveDAO<E> {
-	void modificar (E data);
+import java.util.List;
+
+interface RetriveDAO<E> {
+	
+	List<E> consultar(E data);
 }

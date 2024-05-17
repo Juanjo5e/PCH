@@ -8,4 +8,6 @@ public interface PaisDAO extends RetriveDAO<PaisEntity>{
 
 	void modificar(PaisEntity data);
 
+	List<PaisEntity> consultar(PaisEntity data);
+
 }

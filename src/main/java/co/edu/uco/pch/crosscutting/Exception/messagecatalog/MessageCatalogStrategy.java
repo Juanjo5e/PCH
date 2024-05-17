@@ -31,6 +31,10 @@ public final class MessageCatalogStrategy {
 	    }
 	    return getStrategy(codigo.isBase()).obtenerMensaje(codigo, parametros);
 	}
+	public static Object getContenidoMensaje(CodigoMensaje m00002) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 
