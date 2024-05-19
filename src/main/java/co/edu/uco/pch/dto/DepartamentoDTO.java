@@ -21,7 +21,7 @@ public final class DepartamentoDTO {
 		setPais(pais);
 	}
 	
-	public static final DepartamentoDTO buil() {
+	public static final DepartamentoDTO build() {
 		return new DepartamentoDTO();
 	}
 

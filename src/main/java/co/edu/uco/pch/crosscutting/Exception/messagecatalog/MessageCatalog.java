@@ -11,3 +11,4 @@ public interface MessageCatalog {
 	Mensaje obtenerMensaje(final CodigoMensaje codigo, String...parametros);
 	
 }
+ 

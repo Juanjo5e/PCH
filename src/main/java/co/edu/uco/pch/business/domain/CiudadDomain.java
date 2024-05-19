@@ -15,23 +15,24 @@ public class CiudadDomain {
 		setNombre(nombre);
 		setDepartamento(departamento);
 	}
-	public static final CiudadDomain build(final UUID id, final String nombre, final DepartamentoDomain departamento) {
+	
+	public static CiudadDomain build(final UUID id, final String nombre, final DepartamentoDomain departamento) {
 		return new CiudadDomain(id, nombre, departamento);
+	}	
+	public static CiudadDomain build(final UUID id) {
+		return new CiudadDomain(id, TextHelper.EMPTY, DepartamentoDomain.build());	
 	}
-	public static final CiudadDomain build(final UUID id) {
-		return new CiudadDomain(id, TextHelper.EMPTY, DepartamentoDomain.build());
-	}
-	public static final CiudadDomain build() {
-		return new CiudadDomain(UUIDHelper.generarUUIDDefecto(),
+	public static CiudadDomain build() {
+		return new CiudadDomain(UUIDHelper.getDefault(),
 				TextHelper.EMPTY, DepartamentoDomain.build());
 	}	
 	
 	
 	private final void setId(UUID id) {
-		this.id = id;
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
 	private final void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombre = TextHelper.applyTrim(nombre);
 	}
 	private final void setDepartamento(DepartamentoDomain departamento) {
 		this.departamento = departamento;

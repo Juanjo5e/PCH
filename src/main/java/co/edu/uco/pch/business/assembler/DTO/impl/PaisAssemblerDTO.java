@@ -6,25 +6,32 @@ import co.edu.uco.pch.dto.PaisDto;
 
 import static co.edu.uco.pch.crosscutting.helper.ObjectHelper.getObjectHelper;;
 
-public class PaisAssemblerDTO  implements AssamblerDTO<PaisDomain, PaisDTO>{
+public final class PaisAssemblerDTO  implements AssamblerDTO<PaisDomain, PaisDto>{
 
-	@Override
-	public PaisDomain toDomain(final PaisDTO date) {
-		var PaisDTOTmp =getObjectHelper().getDefaulValue(date , Pai);
+	private static final AssamblerDTO<PaisDomain, PaisDto> instance = new PaisAssemblerDTO();
 	
-		return PaisDomain.build(PaisDTOTmp.getId(), PaisDTOTmp.getNombre());
+	private PaisAssemblerDTO() {
+		super();
+	}
+	
+	public static final AssamblerDTO<PaisDomain, PaisDto> getInstance(){
+		return instance;
+	}
+	
+	@Override
+	public final PaisDomain toDomain(final PaisDto date) {
+		var paisDtoTmp =getObjectHelper().getDefaulValue(date , PaisDto.buil());
+	
+		return PaisDomain.build(paisDtoTmp.getId(), paisDtoTmp.getNombre());
 	}
 
 	@Override
-	public PaisAssemblerDTO toDTO(PaisDomain domain) {
-		// TODO Auto-generated method stub
-		return null;
+	public final PaisDto toDTO(final PaisDomain domain) {
+		
+	var paisDomainTmp = getObjectHelper().getDefaulValue(domain , PaisDomain.build());
+	
+		return PaisDto.buil().setId(paisDomainTmp.getId()).setNombre(paisDomainTmp.getNombre());
 	}
 
-	@Override
-	public PaisDomain toDomain() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

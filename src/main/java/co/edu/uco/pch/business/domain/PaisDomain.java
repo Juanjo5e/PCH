@@ -20,15 +20,15 @@ public final class PaisDomain {
 		return new PaisDomain(id, TextHelper.EMPTY);	
 	}
 	public static PaisDomain build() {
-		return new PaisDomain(UUIDHelper.generarUUIDDefecto(),
+		return new PaisDomain(UUIDHelper.getDefault(),
 				TextHelper.EMPTY);
 	}	
 	
 	private void setId(final UUID id) {
-		this.id = UUIDHelper.generarUUIDDefecto();
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
 	private void setNombre(final String nombre) {
-		this.nombre = nombre;
+		this.nombre = TextHelper.applyTrim(nombre);
 	}
 	
 	public UUID getId() {
