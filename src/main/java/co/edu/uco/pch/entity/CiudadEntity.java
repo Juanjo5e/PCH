@@ -25,7 +25,7 @@ public final class CiudadEntity {
 
 
 
-	public static final CiudadEntity buil() {
+	public static final CiudadEntity build() {
 		return new CiudadEntity();
 	}
 

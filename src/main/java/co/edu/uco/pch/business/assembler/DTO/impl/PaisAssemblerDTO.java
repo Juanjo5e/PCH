@@ -1,20 +1,20 @@
 package co.edu.uco.pch.business.assembler.DTO.impl;
 
-import co.edu.uco.pch.business.assembler.DTO.AssamblerDTO;
+import co.edu.uco.pch.business.assembler.DTO.AssemblerDTO;
 import co.edu.uco.pch.business.domain.PaisDomain;
 import co.edu.uco.pch.dto.PaisDto;
 
 import static co.edu.uco.pch.crosscutting.helper.ObjectHelper.getObjectHelper;;
 
-public final class PaisAssemblerDTO  implements AssamblerDTO<PaisDomain, PaisDto>{
+public final class PaisAssemblerDTO  implements AssemblerDTO<PaisDomain, PaisDto>{
 
-	private static final AssamblerDTO<PaisDomain, PaisDto> instance = new PaisAssemblerDTO();
+	private static final AssemblerDTO<PaisDomain, PaisDto> instance = new PaisAssemblerDTO();
 	
 	private PaisAssemblerDTO() {
 		super();
 	}
 	
-	public static final AssamblerDTO<PaisDomain, PaisDto> getInstance(){
+	public static final AssemblerDTO<PaisDomain, PaisDto> getInstance(){
 		return instance;
 	}
 	

@@ -3,7 +3,7 @@ package co.edu.uco.pch.crosscutting.Exception.messagecatalog.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttinPCHException;
+import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttingPCHException;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.MessageCatalog;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.MessageCatalogStrategy;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.CodigoMensaje;
@@ -77,17 +77,17 @@ public final class MessageCatalogBase implements MessageCatalog {
 			if (ObjectHelper.getObjectHelper().isNULL(codigo)) {
 				var mensajeUsuario=obtenerContendidoMensaje(CodigoMensaje.M00002);
 				var mensajeTecnico=obtenerContendidoMensaje(CodigoMensaje.M00001);
-				throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
+				throw new CrosscuttingPCHException(mensajeTecnico, mensajeUsuario);
 			}
 			if (!codigo.isBase()) {
 				var mensajeUsuario=obtenerContendidoMensaje(CodigoMensaje.M00002);
 				var mensajeTecnico=obtenerContendidoMensaje(CodigoMensaje.M00004, codigo.getIdentificador());
-				throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
+				throw new CrosscuttingPCHException(mensajeTecnico, mensajeUsuario);
 			}
 			if (!mensajes.containsKey(codigo.getIdentificador())) {
 				var mensajeUsuario=obtenerContendidoMensaje(CodigoMensaje.M00002);
 				var mensajeTecnico=obtenerContendidoMensaje(CodigoMensaje.M00003, codigo.getIdentificador());
-				throw new CrosscuttinPCHException(mensajeTecnico, mensajeUsuario);
+				throw new CrosscuttingPCHException(mensajeTecnico, mensajeUsuario);
 			}
 			
 			/*TODO: Tarea: asegure que si tiene parametros, el contenido 

@@ -1,6 +1,6 @@
 package co.edu.uco.pch.crosscutting.Exception.messagecatalog;
 
-import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttinPCHException;
+import co.edu.uco.pch.crosscutting.Exception.custome.CrosscuttingPCHException;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.CodigoMensaje;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.dat.Mensaje;
 import co.edu.uco.pch.crosscutting.Exception.messagecatalog.impl.MessageCatalogBase;
@@ -27,7 +27,7 @@ public final class MessageCatalogStrategy {
 	
 	public static final Mensaje getMensaje(final CodigoMensaje codigo, final String... parametros) {
 	    if (ObjectHelper.getObjectHelper().isNULL(codigo)) {
-	        throw new CrosscuttinPCHException(null, null);
+	        throw new CrosscuttingPCHException(null, null);
 	    }
 	    return getStrategy(codigo.isBase()).obtenerMensaje(codigo, parametros);
 	}

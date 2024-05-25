@@ -1,13 +1,13 @@
 package co.edu.uco.pch.business.assembler;
 
-import co.edu.uco.pch.business.domain.DepartamentoDomain;
-import co.edu.uco.pch.dto.DepartamentoDTO;
+import java.util.List;
 
 public interface Assembler <D, K>{
 	
 	D toDomain (K data);
-
-
+	
+	List<D> toDomainColletion(List<K> entityColletion);
+ 
 	
 	
 }
