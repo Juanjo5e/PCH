@@ -4,37 +4,36 @@ import java.util.UUID;
 
 import co.edu.uco.pch.crosscutting.helper.TextHelper;
 
-public final class PaisDTO {
+public final class PaisDto {
 	private UUID id;
 	private String nombre;
 	
-	public PaisDTO() {
+	public PaisDto() {
 		super();
 	}
 	
 	
- //prueba 2
 	
-	public PaisDTO(final UUID id, final String nombre) {
+	public PaisDto(final UUID id, final String nombre) {
 		setId(id);
 		setNombre(nombre);
 	}
 	
-	public static final PaisDTO buil() {
-		return new PaisDTO();
+	public static final PaisDto buil() {
+		return new PaisDto();
 	}
 
 	public final UUID getId() {
 		return id;
 	}
-	public final PaisDTO setId(final UUID id) {
+	public final PaisDto setId(final UUID id) {
 		this.id = id;
 		return this;
 	}
 	public final  String getNombre() {
 		return nombre;
 	}
-	public final PaisDTO setNombre(final String nombre) {
+	public final PaisDto setNombre(final String nombre) {
 		this.nombre = TextHelper.applyTrim(nombre);
 		return this;
 	}
