@@ -10,12 +10,12 @@ import co.edu.uco.pch.business.domain.CiudadDomain;
 import co.edu.uco.pch.crosscutting.helper.ObjectHelper;
 import co.edu.uco.pch.dto.CiudadDTO;
 
-public class CiudadAssamblerDTO implements AssemblerDTO<CiudadDomain, CiudadDTO> {
+public class CiudadAssemblerDTO implements AssemblerDTO<CiudadDomain, CiudadDTO> {
 
-	private static final AssemblerDTO<CiudadDomain, CiudadDTO>  instance = new CiudadAssamblerDTO();
+	private static final AssemblerDTO<CiudadDomain, CiudadDTO>  instance = new CiudadAssemblerDTO();
 	
 	
-	private CiudadAssamblerDTO() {
+	private CiudadAssemblerDTO() {
 		super();
 	}
 	
@@ -45,16 +45,15 @@ public class CiudadAssamblerDTO implements AssemblerDTO<CiudadDomain, CiudadDTO>
 		
 		for (CiudadDTO ciudadDto : dtoColletionTmp) {
 			var ciudadDomainTmp = toDomain(ciudadDto);
-			resultadosDomain.add(resultadosDomain);
+			resultadosDomain.addAll(resultadosDomain);
 		}
 		return resultadosDomain;
 	}
 
 	@Override
-	public List<CiudadDTO> toDTOColletion(List<CiudadDomain> domain) {
-		var domainColletionTmp = ObjectHelper.getObjectHelper().getDefaulValue(domainColletionTmp
-				, new ArrayList<CiudadDomain>());
-		return domainColletionTmp.stream().map(this:: c);
+	public List<CiudadDTO> toDTOColletion(final List<CiudadDomain> domainColletion) {
+		var domainColletionTmp = ObjectHelper.getObjectHelper().getDefaulValue(domainColletion , new ArrayList<CiudadDomain>());
+		return domainColletionTmp.stream().map(this:: toDTO).toList();
 	}
 
 

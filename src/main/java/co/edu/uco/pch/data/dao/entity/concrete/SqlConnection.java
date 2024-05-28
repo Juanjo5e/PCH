@@ -27,7 +27,7 @@ public class SqlConnection {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = "No es posible crer el DAo deseado con una conexion cerrada";
 			
-			throw new DataPCHException(mensajeUsuario, mensajeTecnico);
+			throw new DataPCHException((String) mensajeUsuario, mensajeTecnico);
 		}
 		this.conexion = conexion;
 	

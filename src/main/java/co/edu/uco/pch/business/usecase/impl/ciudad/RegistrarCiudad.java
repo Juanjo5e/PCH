@@ -24,19 +24,20 @@ public final class RegistrarCiudad implements UseCaseWithoutReturn<CiudadDomain>
         this.factory = factory;
     }
     @Override
-    public void excute( final CiudadDomain data) {
-        // 1. Validar que los casos de uso sean correctos a nivel de tipo de dato, longitutd, obligateriodidad, formato, rango, etc...
-        // 2. Validar que no exista otra ciudad con el mismo nombre para el mismo departamento
-        validarCiudadMismoNombreMismoDepartamento(data.getNombre(), data.getDepartamento().getId());
+    public void execute(final CiudadDomain data) {
+		// 1. validar que los datos requeridos par el caso de uso sean correctos a nivel de tipo de dato, rango, formato
+		// 2. Validar que no exista una misma ciudad para un mismo departamento
+		validarCiudadMismoNombreMismoDepartamento(data.getNombre(),
+				data.getDepartamento().getId());
+		
+		// 3. validar que no exista otra ciudad con el mismo identificador
 
-        // 3. Validar que no exista otra ciudad con el mismo identificador
-        var ciudadEntity = CiudadEntity.build().setId(generarIdentificadorCiudad()).setNombre
-                        (data.getNombre()).setDepartamento(DepartamentoAssemblerEntity.
-                     getInstance().toEntity(data.getDepartamento()));
-        // 4. Guardar la nueva ciudad
-
-        factory.getCiudadDAO().crear(ciudadEntity);
-    }
+		var ciudadEntity = CiudadEntity.build().setId(generarIdentificadorCiudad())
+				.setNombre(data.getNombre())
+				.setDepartamento(DepartamentoAssemblerEntity.getInstance()
+						.toEntity(data.getDepartamento()));
+						factory.getCiudadDAO().crear(ciudadEntity);
+	}
 
     private final UUID generarIdentificadorCiudad(){
         UUID id = UUIDHelper.generate();
@@ -52,19 +53,19 @@ public final class RegistrarCiudad implements UseCaseWithoutReturn<CiudadDomain>
         return id;
     }
     
-    private final void validarCiudadMismoNombreMismoDepartamento(final String nombreCiudad, final UUID idDepartamento){
-        var ciudadEntity = CiudadEntity.build().setNombre(nombreCiudad).
-                setDepartamento(DepartamentoEntity.build().setId(idDepartamento));
-        var resultados = factory.getCiudadDAO().consultar(ciudadEntity);
-
-        if (!resultados.isEmpty()){
-            var mensajeUsuario= "Ya existe una ciudad con el nombre \"${1}\" asociado con " ;
-            throw new BussinesPCHException(mensajeUsuario);
-
-        }
-    }
-	@
-
+    private final void validarCiudadMismoNombreMismoDepartamento(
+			final String nombreCiudad, final UUID idDepartamento) {
+		var ciudadEntity = CiudadEntity.build()
+				.setNombre(nombreCiudad)
+				.setDepartamento(DepartamentoEntity.build().setId(idDepartamento));
+		
+		var resultado = factory.getCiudadDAO().consultar(ciudadEntity);
+		
+		if(!resultado.isEmpty()) {
+			var mensajeUsuario = "Ya existe una ciudad con el nombre \"${1}\" asociada al departamento";
+			throw new BussinesPCHException(mensajeUsuario);
+		}
+	}
 
     
 	
