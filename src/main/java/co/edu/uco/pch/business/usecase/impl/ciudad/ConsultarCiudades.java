@@ -26,10 +26,10 @@ public class ConsultarCiudades implements UseCaseWithReturn<CiudadDomain, List<C
         @Override
 	public List<CiudadDomain> execute(CiudadDomain data) {
         	var ciudadEntityFilter = CiudadAssemblerEntity.getInstance().toEntity(data);
-        	var resultados = factory.getCiudadDAO().consultar(ciudadEntityFilter);
+        	var resultadosEntity = factory.getCiudadDAO().consultar(ciudadEntityFilter);
 		// TODO Auto-generated method stub
-        	var resultadosDomain = CiudadAssemblerEntity.getInstance().toDomainColletion(resultadosEntity);
-		return resultadosDomain;
+        	
+		return CiudadAssemblerEntity.getInstance().toDomainColletion(resultadosEntity);
 	}
 
 }

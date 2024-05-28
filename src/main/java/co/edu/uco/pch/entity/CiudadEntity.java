@@ -46,8 +46,9 @@ public final class CiudadEntity {
 	public final DepartamentoEntity getDepartamento() {
 		return departamento;
 	}
-	public final void setDepartamento(final DepartamentoEntity departamento) {
+	public final CiudadEntity setDepartamento(final DepartamentoEntity departamento) {
 		this.departamento = ObjectHelper.getObjectHelper().getDefaulValue(departamento, new DepartamentoEntity());
+		return this;
 	}
 	
 	

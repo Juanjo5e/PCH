@@ -34,12 +34,12 @@ public final class AzureSQLDAOFactory extends SqlConnection implements DAOFactor
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = "Se ha presentado un problema tratando de obtener la conexión con la base de datos wednesday en el servidor de bases de datos wednesday.database.windows.net. Por favor revise la traza de errores para identificar y solucionar el problema...";
 
-			throw new DataPCHException(mensajeUsuario, mensajeTecnico, excepcion);
+			throw new DataPCHException((String) mensajeUsuario, mensajeTecnico, excepcion);
 		} catch (final Exception excepcion) {
 			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
 			var mensajeTecnico = "Se ha presentado un problema INESPERADO tratando de obtener la conexión con la base de datos wednesday en el servidor de bases de datos wednesday.database.windows.net. Por favor revise la traza de errores para identificar y solucionar el problema...";
 
-			throw new DataPCHException(mensajeTecnico, mensajeUsuario, excepcion);
+			throw new DataPCHException(mensajeTecnico, (String) mensajeUsuario, excepcion);
 		}
 	}
 
@@ -88,13 +88,13 @@ public final class AzureSQLDAOFactory extends SqlConnection implements DAOFactor
 			System.out.println("Creando ciudad aleatoriamente");
 			DepartamentoEntity departamento = DepartamentoEntity.build()
 					.setId(UUIDHelper.convertToUUID("7827155D-0A6B-4D6E-9807-C5B7097D94F0"));
-			CiudadEntity ciudad = CiudadEntity.buil().setId(UUIDHelper.generate())
+			CiudadEntity ciudad = CiudadEntity.build().setId(UUIDHelper.generate())
 					.setNombre("Rionegro-" + UUIDHelper.generate()).setDepartamento(departamento);
 
 			factory.getCiudadDAO().crear(ciudad);
 
 			System.out.println("Consultamos ciudades: ");
-			var resultados = factory.getCiudadDAO().consultar(CiudadEntity.buil());
+			var resultados = factory.getCiudadDAO().consultar(CiudadEntity.build());
 
 			for (CiudadEntity ciudadEntity : resultados) {
 				System.out.println("idCiudad: " + ciudadEntity.getId() + ", nombreCiudad: " + ciudadEntity.getNombre()
